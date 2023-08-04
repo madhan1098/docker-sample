@@ -14,7 +14,10 @@ pipeline {
 		git branch: 'main', url: 'https://github.com/madhan1098/docker-sample.git'
       }
     }
-
+	stage('Initialize'){
+        def dockerHome = tool 'myDocker'
+        env.PATH = "${dockerHome}/bin:${env.PATH}"
+    }
     stage('Build image') {
       steps{
         script {
