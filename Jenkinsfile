@@ -4,7 +4,7 @@ pipeline {
     dockerimagename = "madhan1098/test-repo"
     dockerImage = ""
 	dockerHome = tool 'myDocker'
-	TEST="${env.WORKSPACE}/build-dir:${env.PATH}"
+	PATH = "${dockerHome}/bin:${env.PATH}"
   }
 
   agent any
@@ -17,9 +17,9 @@ pipeline {
       }
     }
 	stage('Initialize') {
-      steps {
+      steps {		
 		echo "PATH is: $PATH"
-      }
+	  }
     }	
     stage('Build image') {
       steps{
