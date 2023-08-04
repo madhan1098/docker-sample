@@ -16,19 +16,11 @@ pipeline {
 		git branch: 'main', url: 'https://github.com/madhan1098/docker-sample.git'
       }
     }
-	stage('Initialize'){
-		steps {
-			echo "PATH is: $PATH"
-			sh 'echo "PATH is: $PATH"'
-			sh 'echo "TEST is: $TEST"'
-		}
-		steps {
-		  withEnv(["PATH+BUILD_DIR=${WORKSPACE}/build-dir"]) {
-			echo "PATH is: $PATH"
-			sh 'echo "PATH is: $PATH"'
-		  }
-		}
-    }
+	stage('Initialize') {
+      steps {
+		echo "PATH is: $PATH"
+      }
+    }	
     stage('Build image') {
       steps{
         script {
