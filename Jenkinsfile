@@ -11,7 +11,7 @@ pipeline {
 
     stage('Checkout Source') {
       steps {
-        git 'https://github.com/madhan1098/docker-sample.git'
+		git branch: 'main', url: 'https://github.com/madhan1098/docker-sample.git'
       }
     }
 
